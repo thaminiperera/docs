@@ -19,11 +19,14 @@ import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
 import { useEditorStore } from "@/store/use-editor-store";
 import { FontSizeExtension } from "@/extensions/font-size";
+import { LineHeightExtensions } from "@/extensions/line-height";
+import { Ruler } from "./ruler";
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
 
   const editor = useEditor({
+    immediatelyRender: false,
     onCreate({ editor }) {
       setEditor(editor);
     },
@@ -66,6 +69,10 @@ export const Editor = () => {
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
+      LineHeightExtensions.configure({
+        types: ["heading", "paragraph"],
+        defaultLineHeight : "normal"
+      }),
       TaskItem.configure({
         nested: true,
       }),
@@ -82,26 +89,12 @@ export const Editor = () => {
         defaultProtocol: "https",
       }),
     ],
-    content: `
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th colspan="3">Description</th>
-            </tr>
-            <tr>
-              <td>Cyndi Lauper</td>
-              <td>Singer</td>
-              <td>Songwriter</td>
-              <td>Actress</td>
-            </tr>
-          </tbody>
-        </table>
-      `,
+    
   });
 
   return (
     <div className="size-full overflow-x-auto bg-[#F9FBFD] px-4 print:p-0 print:bg-white print:overflow-visible">
+      <Ruler/>
       <div className="min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0  ">
         <EditorContent editor={editor} />
       </div>
