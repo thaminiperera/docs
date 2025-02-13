@@ -96,14 +96,15 @@ body {
   h5,
   h6 {
     line-height: 1.1;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     text-wrap: pretty;
   }
 
   h1,
   h2 {
-    margin-top: 3.5rem;
+    margin-top: 2.5rem;
     margin-bottom: 1.5rem;
+
   }
 
   h1 {
@@ -161,6 +162,7 @@ body {
         flex: 0 0 auto;
         margin-right: 0.5rem;
         user-select: none;
+        padding-top: 4px;
       }
 
       > div {
@@ -205,9 +207,12 @@ body {
     }
 
     .selectedCell:after {
-      background: #959596;
+      background: #6363645d;
       content: "";
-      left: 0; right: 0; top: 0; bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
       pointer-events: none;
       position: absolute;
       z-index: 2;
@@ -243,6 +248,15 @@ body {
 
     &.ProseMirror-selectednode {
       outline: 3px solid var(--primary);
+    }
+  }
+  /* Link styles */
+  a {
+    @apply text-blue-400;
+    cursor: pointer;
+
+    &:hover {
+      @apply underline;
     }
   }
 }

@@ -10,9 +10,44 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
+import Underline from "@tiptap/extension-underline";
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
+import Link from "@tiptap/extension-link";
+import { Color } from "@tiptap/extension-color";
+import Highlight from "@tiptap/extension-highlight";
+import TextAlign from "@tiptap/extension-text-align";
+import { useEditorStore } from "@/store/use-editor-store";
+import { FontSizeExtension } from "@/extensions/font-size";
 
 export const Editor = () => {
+  const { setEditor } = useEditorStore();
+
   const editor = useEditor({
+    onCreate({ editor }) {
+      setEditor(editor);
+    },
+    onDestroy() {
+      setEditor(null);
+    },
+    onUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
+    },
+    onTransaction({ editor }) {
+      setEditor(editor);
+    },
+    onFocus({ editor }) {
+      setEditor(editor);
+    },
+    onBlur({ editor }) {
+      setEditor(editor);
+    },
+    onContentError({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left: 56px; padding-right: 56px;",
@@ -22,6 +57,15 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      Underline,
+      Color,
+      Highlight.configure({ multicolor: true }),
+      FontFamily,
+      TextStyle,
+      FontSizeExtension,
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+      }),
       TaskItem.configure({
         nested: true,
       }),
@@ -32,6 +76,11 @@ export const Editor = () => {
       TableRow,
       Image,
       ImageResize,
+      Link.configure({
+        openOnClick: false,
+        autolink: true,
+        defaultProtocol: "https",
+      }),
     ],
     content: `
         <table>
