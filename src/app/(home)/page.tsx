@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Navbar } from "./navbar";
+import { TemplatesCallery } from "./templates-gallery";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="mt-16">
-        Click <Link href="http://localhost:3000/documents/123">Here</Link>{" "}
+        <TemplatesCallery/>
       </div>
     </div>
   );
