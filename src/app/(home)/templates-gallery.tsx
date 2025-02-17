@@ -15,17 +15,19 @@ import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 
 import { api } from "../../../convex/_generated/api";
-
+import { toast } from "sonner";
 
 export const TemplatesCallery = () => {
-  const router = useRouter()
+  const router = useRouter();
   const create = useMutation(api.documents.create);
   const [isCreating, setIsCreating] = useState(false);
 
   const onTemplateClick = (title: string, initialContent: string) => {
     setIsCreating(true);
     create({ title, initialContent })
+      .catch(() => toast.error("Something went wrong!"))
       .then((documentId) => {
+        toast.success("Document Created!")
         router.push(`/documents/${documentId}`);
       })
       .finally(() => {
