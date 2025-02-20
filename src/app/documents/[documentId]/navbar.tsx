@@ -33,6 +33,7 @@ import {
   UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
+import { Avatars } from "./avatars";
 import { BsFilePdf } from "react-icons/bs";
 import { useEditorStore } from "@/store/use-editor-store";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
@@ -48,40 +49,40 @@ export const Navbar = () => {
       .run();
   };
 
-const onDownload = (blob:Blob, filename:string) => {
+  const onDownload = (blob: Blob, filename: string) => {
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a")
-    a.href = url
-    a.download = filename
-    a.click()
-}
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+  };
 
-const onSaveJSON = () => {
-    if(!editor) return;
+  const onSaveJSON = () => {
+    if (!editor) return;
     const content = editor.getJSON();
     const blob = new Blob([JSON.stringify(content)], {
-        type: "application/json"
-    })
-    onDownload(blob, `document.json`)
-}
+      type: "application/json",
+    });
+    onDownload(blob, `document.json`);
+  };
 
-const onSaveHTML = () => {
-    if(!editor) return;
+  const onSaveHTML = () => {
+    if (!editor) return;
     const content = editor.getHTML();
     const blob = new Blob([content], {
-        type: "text/html"
-    })
-    onDownload(blob, `document.html`)
-}
+      type: "text/html",
+    });
+    onDownload(blob, `document.html`);
+  };
 
-const onSaveText = () => {
-    if(!editor) return;
+  const onSaveText = () => {
+    if (!editor) return;
     const content = editor.getText();
     const blob = new Blob([content], {
-        type: "text/plain"
-    })
-    onDownload(blob, `document.txt`)
-}
+      type: "text/plain",
+    });
+    onDownload(blob, `document.txt`);
+  };
   return (
     <nav className="flex items-center justify-between">
       <div className="flex gap-2 items-center">
@@ -200,26 +201,46 @@ const onSaveText = () => {
                     </MenubarSubTrigger>
                     <MenubarSubContent>
                       {" "}
-                      <MenubarItem onClick={() => editor?.chain().focus().toggleBold().run()}>
+                      <MenubarItem
+                        onClick={() =>
+                          editor?.chain().focus().toggleBold().run()
+                        }
+                      >
                         <BoldIcon className="size-4 mr-2" /> Bold
                         <MenubarShortcut>Ctrl+B</MenubarShortcut>
                       </MenubarItem>
-                      <MenubarItem onClick={() => editor?.chain().focus().toggleItalic().run()}>
+                      <MenubarItem
+                        onClick={() =>
+                          editor?.chain().focus().toggleItalic().run()
+                        }
+                      >
                         <ItalicIcon className="size-4 mr-2" /> Italic
                         <MenubarShortcut>Ctrl+I</MenubarShortcut>
                       </MenubarItem>
-                      <MenubarItem onClick={() => editor?.chain().focus().toggleUnderline().run()}>
+                      <MenubarItem
+                        onClick={() =>
+                          editor?.chain().focus().toggleUnderline().run()
+                        }
+                      >
                         <UnderlineIcon className="size-4 mr-2" /> Underline
                         <MenubarShortcut>Ctrl+U</MenubarShortcut>
                       </MenubarItem>
-                      <MenubarItem onClick={() => editor?.chain().focus().toggleStrike().run()}>
+                      <MenubarItem
+                        onClick={() =>
+                          editor?.chain().focus().toggleStrike().run()
+                        }
+                      >
                         <StrikethroughIcon className="size-4 mr-2" />{" "}
                         Strikethrough&nbsp;&nbsp;
                         <MenubarShortcut>Ctrl+Shift+S</MenubarShortcut>
                       </MenubarItem>
                     </MenubarSubContent>
                   </MenubarSub>
-                  <MenubarItem onClick={() => editor?.chain().focus().unsetAllMarks().run()}>
+                  <MenubarItem
+                    onClick={() =>
+                      editor?.chain().focus().unsetAllMarks().run()
+                    }
+                  >
                     <RemoveFormattingIcon className="size-4 mr-2" /> Clear
                     Formatting{" "}
                   </MenubarItem>
@@ -230,11 +251,12 @@ const onSaveText = () => {
         </div>
       </div>
       <div className="flex gap-3 items-center pl-6">
-        <OrganizationSwitcher 
-        afterCreateOrganizationUrl="/"
-        afterLeaveOrganizationUrl="/"
-        afterSelectOrganizationUrl="/"
-        afterSelectPersonalUrl="/"
+        <Avatars />
+        <OrganizationSwitcher
+          afterCreateOrganizationUrl="/"
+          afterLeaveOrganizationUrl="/"
+          afterSelectOrganizationUrl="/"
+          afterSelectPersonalUrl="/"
         />
         <UserButton />
       </div>
