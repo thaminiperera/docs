@@ -3,6 +3,7 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Doc } from "../../../convex/_generated/dataModel";
 import { SiGoogledocs } from "react-icons/si";
+import { FaPaw } from "react-icons/fa6";
 import { Building2Icon, CircleUserIcon } from "lucide-react";
 import { format } from "date-fns";
 import { DocumentMenu } from "./document-menu";
@@ -18,7 +19,8 @@ export const DocumentRow = ({ document }: DocumentRowProps) => {
   return (
     <TableRow className="cursor-pointer" onClick={() => router.push(`/documents/${document._id}`)}>
       <TableCell className="w-[50px]">
-        <SiGoogledocs className="size-6 fill-blue-500" />
+        <FaPaw className="size-6 fill-slate-600"/>
+        
       </TableCell>
       <TableCell className="font-medium md:w-[45%]">{document.title}</TableCell>
       <TableCell className="text-muted-foreground hidden md:flex items-center gap-2">

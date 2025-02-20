@@ -36,7 +36,7 @@ export const TemplatesCallery = () => {
   };
 
   return (
-    <div className="bg-[#f1f3f4]">
+    <div className="bg-[#d1dce2]">
       <div className="max-w-screen-xl mx-auto px-16 py-6 flex flex-col gap-y-4">
         <h3 className="font-medium">Start a new document</h3>
         <Carousel>
@@ -54,7 +54,7 @@ export const TemplatesCallery = () => {
                 >
                   <button
                     disabled={isCreating}
-                    onClick={() => onTemplateClick(template.label, "")}
+                    onClick={() => onTemplateClick(template.label, template.initialContent)}
                     style={{
                       backgroundImage: `url(${template.imageUrl})`,
                       backgroundSize: "cover",

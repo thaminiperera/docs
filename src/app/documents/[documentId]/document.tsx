@@ -21,8 +21,8 @@ export const Document = ({ preloadedDocument }: DocumentProps) => {
           <Navbar data={document}/>
           <Toolbar />
         </div>
-        <div className="pt-[114px] print:pt-0">
-          <Editor />
+        <div className="pt-[114px] print:pt-0" >
+          <Editor initialContent={document.initialContent}/>
         </div>
       </div>
     </Room>
