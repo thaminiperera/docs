@@ -2,7 +2,6 @@
 
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Doc } from "../../../convex/_generated/dataModel";
-import { SiGoogledocs } from "react-icons/si";
 import { FaPaw } from "react-icons/fa6";
 import { Building2Icon, CircleUserIcon } from "lucide-react";
 import { format } from "date-fns";

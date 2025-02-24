@@ -1,3 +1,6 @@
+/*eslint-disable @typescript-eslint/no-unused-vars */
+
+
 "use client"
 
 // Inspired by react-hot-toast library
@@ -17,6 +20,7 @@ type ToasterToast = ToastProps & {
   description?: React.ReactNode
   action?: ToastActionElement
 }
+
 
 const actionTypes = {
   ADD_TOAST: "ADD_TOAST",
