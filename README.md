@@ -2,7 +2,7 @@
 
 This system provides a fluid, responsive, and feature-rich document editing and collaboration environment. It offers a modern alternative to traditional tools like Google Docs, enabling users to create, edit, and collaborate on documents in real-time with minimal latency. The platform is highly customizable, catering to the evolving needs of modern users.
 
-Application Demo : docs-five-orpin.vercel.app
+Application Demo :  https://docs-five-orpin.vercel.app
 
 ---
 
@@ -92,26 +92,7 @@ Application Demo : docs-five-orpin.vercel.app
 
 ## Deployment
 
-The entire platform is deployed on **Vercel**, ensuring fast, reliable, and scalable hosting. This deployment setup supports high traffic and ensures optimal performance and uptime.
+The entire platform is deployed on **Vercel** at  https://docs-five-orpin.vercel.app
 
----
 
-## How to Run Locally
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/thaminiperera/docs
-
-2. Navigate to the project directory::
-   ```bash
-   cd docs
-
-3. Install the dependencies::
-   ```bash
-   npm install
-
-4. Run the development server:
-   ```bash
-   npm run dev
-
-5. Visit http://localhost:3000 in your browser.
