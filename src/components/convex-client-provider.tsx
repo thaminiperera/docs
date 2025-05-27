@@ -22,9 +22,9 @@ export function ConvexClientProvider({ children }: { children: ReactNode }) {
         <Authenticated>{children}</Authenticated>
         <Unauthenticated>
           <div className="flex flex-col items-center justify-center min-h-screen">
-            <div class="bg-gray-100 text-gray-600 p-4 rounded-xl text-sm mb-5">
-              <strong class="font-medium">Note:</strong> Email authentication has been temporarily disabled. Feel free to use guest credentials like  
-              <code class="bg-gray-200 px-1 rounded">guestemail@gmail.com</code> and <code class="bg-gray-200 px-1 rounded">GuestPassword@45</code> to sign in.
+            <div className="bg-gray-100 text-gray-600 p-4 rounded-xl text-sm mb-5">
+              <strong className="font-medium">Note:</strong> Email authentication has been temporarily disabled. Feel free to use guest credentials like  
+              <code className="bg-gray-200 px-1 mx-1 rounded">guestemail@gmail.com</code> and <code className="bg-gray-200 px-1 rounded">GuestPassword@45</code> to sign in.
             </div>
             <SignIn routing="hash" />
           </div>
